@@ -1,21 +1,21 @@
 {
-    // Configure glob patterns for excluding files and folders.
-    "files.exclude": {
-        "**/.git": true,
-        "**/.gradle": true,
-        "**/.idea": true,
-        "**/.mvn": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/.DS_Store": true
-    },
-    // Configure glob patterns for excluding files and folders in searches. Inherits all glob patterns from the files.exclude setting.
-    "search.exclude": {
-        "**/node": true,
-        "**/node_modules": true,
-        "**/bower_components": true,
-        "**/build": true,
-        "**/target": true
-    },
-    "java.compile.nullAnalysis.mode": "automatic"
+  // Configure glob patterns for excluding files and folders.
+  "files.exclude": {
+    "**/.git": true,
+    "**/.gradle": true,
+    "**/.idea": true,
+    "**/.mvn": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/.DS_Store": true
+  },
+  // Configure glob patterns for excluding files and folders in searches. Inherits all glob patterns from the files.exclude setting.
+  "search.exclude": {
+    "**/node": true,
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/build": true,
+    "**/target": true
+  },
+  "java.compile.nullAnalysis.mode": "automatic"
 }

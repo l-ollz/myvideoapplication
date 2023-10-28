@@ -1,0 +1,46 @@
+{
+  "applications": "*",
+  "changelogDate": "20231022065220",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "post",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "content",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "file",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Post",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "vlog",
+      "relationshipName": "vlog",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "tag",
+      "otherEntityRelationshipName": "log",
+      "ownerSide": true,
+      "relationshipName": "tag",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

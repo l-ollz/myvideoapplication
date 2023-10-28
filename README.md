@@ -236,3 +236,18 @@ To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`)
 [cypress]: https://www.cypress.io/
 [leaflet]: https://leafletjs.com/
 [definitelytyped]: https://definitelytyped.org/
+
+## 自分用(後で消す)
+
+entity 更新したら下記コマンドで全更新かける。(念の為)
+
+```
+for f in `ls .jhipster`; do jhipster entity ${f%.*} --force ; done
+```
+
+すべてのエンティティを再生成
+これでリレーションシップ、フィールドなどが自動更新される。
+
+```
+jhipster jdl ./my-jdl-file.jdl --force
+```

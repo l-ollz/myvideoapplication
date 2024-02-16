@@ -2,6 +2,7 @@ package com.myapp.myvideoapplication;
 
 import com.myapp.myvideoapplication.MyvideoapplicationApp;
 import com.myapp.myvideoapplication.config.AsyncSyncConfiguration;
+import com.myapp.myvideoapplication.config.EmbeddedElasticsearch;
 import com.myapp.myvideoapplication.config.EmbeddedSQL;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -16,6 +17,7 @@ import org.springframework.test.annotation.DirtiesContext;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @SpringBootTest(classes = { MyvideoapplicationApp.class, AsyncSyncConfiguration.class })
+@EmbeddedElasticsearch
 @EmbeddedSQL
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_CLASS)
 public @interface IntegrationTest {

@@ -1,5 +1,7 @@
 package com.myapp.myvideoapplication.web.rest;
 
+import static org.elasticsearch.index.query.QueryBuilders.*;
+
 import com.myapp.myvideoapplication.config.Constants;
 import com.myapp.myvideoapplication.domain.User;
 import com.myapp.myvideoapplication.repository.UserRepository;
@@ -14,6 +16,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.*;
 import java.util.Collections;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 import javax.validation.Valid;
 import javax.validation.constraints.Pattern;
 import org.slf4j.Logger;

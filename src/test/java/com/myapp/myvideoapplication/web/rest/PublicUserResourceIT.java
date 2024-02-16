@@ -8,6 +8,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.myapp.myvideoapplication.IntegrationTest;
 import com.myapp.myvideoapplication.domain.User;
 import com.myapp.myvideoapplication.repository.UserRepository;
+import com.myapp.myvideoapplication.repository.search.UserSearchRepository;
 import com.myapp.myvideoapplication.security.AuthoritiesConstants;
 import javax.persistence.EntityManager;
 import org.junit.jupiter.api.BeforeEach;
@@ -32,6 +33,14 @@ class PublicUserResourceIT {
 
     @Autowired
     private UserRepository userRepository;
+
+    /**
+     * This repository is mocked in the com.myapp.myvideoapplication.repository.search test package.
+     *
+     * @see com.myapp.myvideoapplication.repository.search.UserSearchRepositoryMockConfiguration
+     */
+    @Autowired
+    private UserSearchRepository mockUserSearchRepository;
 
     @Autowired
     private EntityManager em;

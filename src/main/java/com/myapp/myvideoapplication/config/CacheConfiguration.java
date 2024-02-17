@@ -48,6 +48,11 @@ public class CacheConfiguration {
             createCache(cm, com.myapp.myvideoapplication.domain.User.class.getName());
             createCache(cm, com.myapp.myvideoapplication.domain.Authority.class.getName());
             createCache(cm, com.myapp.myvideoapplication.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.myapp.myvideoapplication.domain.Vlog.class.getName());
+            createCache(cm, com.myapp.myvideoapplication.domain.Post.class.getName());
+            createCache(cm, com.myapp.myvideoapplication.domain.Post.class.getName() + ".tags");
+            createCache(cm, com.myapp.myvideoapplication.domain.Tag.class.getName());
+            createCache(cm, com.myapp.myvideoapplication.domain.Tag.class.getName() + ".logs");
             // jhipster-needle-ehcache-add-entry
         };
     }

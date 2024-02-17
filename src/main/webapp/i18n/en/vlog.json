@@ -1,0 +1,26 @@
+{
+  "myvideoapplicationApp": {
+    "vlog": {
+      "home": {
+        "title": "Vlogs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Vlog",
+        "createOrEditLabel": "Create or edit a Vlog",
+        "notFound": "No Vlogs found"
+      },
+      "created": "A new Vlog is created with identifier {{ param }}",
+      "updated": "A Vlog is updated with identifier {{ param }}",
+      "deleted": "A Vlog is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Vlog {{ id }}?"
+      },
+      "detail": {
+        "title": "Vlog"
+      },
+      "id": "ID",
+      "name": "Name",
+      "handle": "Handle",
+      "user": "User"
+    }
+  }
+}

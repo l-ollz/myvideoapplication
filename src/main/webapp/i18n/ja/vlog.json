@@ -1,0 +1,26 @@
+{
+  "myvideoapplicationApp": {
+    "vlog": {
+      "home": {
+        "title": "Vlogs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Vlog を追加",
+        "createOrEditLabel": "Vlogを追加または編集",
+        "notFound": "No Vlogs found"
+      },
+      "created": "A new Vlog is created with identifier {{ param }}",
+      "updated": "A Vlog is updated with identifier {{ param }}",
+      "deleted": "A Vlog is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Vlog {{ id }}を削除してもよろしいですか？"
+      },
+      "detail": {
+        "title": "Vlog"
+      },
+      "id": "ID",
+      "name": "Name",
+      "handle": "Handle",
+      "user": "User"
+    }
+  }
+}

@@ -1,0 +1,127 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="ryogo (generated)" id="1698484566325-1">
+        <createSequence incrementBy="50" sequenceName="sequence_generator" startValue="1"/>
+    </changeSet>
+    <changeSet author="ryogo (generated)" id="1698484566325-2">
+        <createTable tableName="jhi_authority">
+            <column name="name" type="VARCHAR(50)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="jhi_authorityPK"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ryogo (generated)" id="1698484566325-3">
+        <createTable tableName="jhi_user">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="jhi_userPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="activated" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="activation_key" type="VARCHAR(20)"/>
+            <column name="email" type="VARCHAR(254)"/>
+            <column name="first_name" type="VARCHAR(50)"/>
+            <column name="image_url" type="VARCHAR(256)"/>
+            <column name="lang_key" type="VARCHAR(10)"/>
+            <column name="last_name" type="VARCHAR(50)"/>
+            <column name="login" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password_hash" type="VARCHAR(60)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="reset_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="reset_key" type="VARCHAR(20)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="ryogo (generated)" id="1698484566325-4">
+        <createTable tableName="jhi_user_authority">
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="jhi_user_authorityPK"/>
+            </column>
+            <column name="authority_name" type="VARCHAR(50)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="jhi_user_authorityPK"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ryogo (generated)" id="1698484566325-5">
+        <createTable tableName="post">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="postPK"/>
+            </column>
+            <column name="content" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="file" type="BYTEA"/>
+            <column name="file_content_type" type="VARCHAR(255)"/>
+            <column name="title" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="vlog_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="ryogo (generated)" id="1698484566325-6">
+        <createTable tableName="rel_post__tag">
+            <column name="post_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="rel_post__tagPK"/>
+            </column>
+            <column name="tag_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="rel_post__tagPK"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ryogo (generated)" id="1698484566325-7">
+        <createTable tableName="tag">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="tagPK"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ryogo (generated)" id="1698484566325-8">
+        <createTable tableName="vlog">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="vlogPK"/>
+            </column>
+            <column name="handle" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="ryogo (generated)" id="1698484566325-9">
+        <addUniqueConstraint columnNames="email" constraintName="UC_JHI_USEREMAIL_COL" tableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="ryogo (generated)" id="1698484566325-10">
+        <addUniqueConstraint columnNames="login" constraintName="UC_JHI_USERLOGIN_COL" tableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="ryogo (generated)" id="1698484566325-11">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="jhi_user_authority" constraintName="FK290okww5jujghp4el5i7mgwu0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user" validate="true"/>
+    </changeSet>
+    <changeSet author="ryogo (generated)" id="1698484566325-12">
+        <addForeignKeyConstraint baseColumnNames="authority_name" baseTableName="jhi_user_authority" constraintName="FK4psxl0jtx6nr7rhqbynr6itoc" deferrable="false" initiallyDeferred="false" referencedColumnNames="name" referencedTableName="jhi_authority" validate="true"/>
+    </changeSet>
+    <changeSet author="ryogo (generated)" id="1698484566325-13">
+        <addForeignKeyConstraint baseColumnNames="post_id" baseTableName="rel_post__tag" constraintName="FKdb5l72rlfglsoo7abeqbwacmy" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="post" validate="true"/>
+    </changeSet>
+    <changeSet author="ryogo (generated)" id="1698484566325-14">
+        <addForeignKeyConstraint baseColumnNames="tag_id" baseTableName="rel_post__tag" constraintName="FKehxe904vxxmkenmfy47e7032r" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="tag" validate="true"/>
+    </changeSet>
+    <changeSet author="ryogo (generated)" id="1698484566325-15">
+        <addForeignKeyConstraint baseColumnNames="vlog_id" baseTableName="post" constraintName="FKojsw59oqkuc7905387b7x5wvr" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="vlog" validate="true"/>
+    </changeSet>
+    <changeSet author="ryogo (generated)" id="1698484566325-16">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="vlog" constraintName="FKsyifdwpol0822aqb9no7mg2ix" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user" validate="true"/>
+    </changeSet>
+</databaseChangeLog>
